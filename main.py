@@ -1,3 +1,3 @@
 from Cpf_Cnpj import CpfCnpj
 
-objeto_doc = CpfCnpj("Coloque um CPF ou CNPJ")
+objeto_doc = CpfCnpj(10141001607)
