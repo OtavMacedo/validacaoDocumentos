@@ -1,5 +1,6 @@
 from validate_docbr import CPF, CNPJ
 
+
 class Documento:
 
     @staticmethod
@@ -17,13 +18,14 @@ class DocCpf:
     def __init__(self, documento):
         if self.valida(documento):
             self.cpf = documento
+            print(self)
         else:
             raise ValueError("CPF inválido")
 
     def __str__(self):
         return self.format()
 
-    def valida(self,documento):
+    def valida(self, documento):
         validador = CPF()
         return validador.validate(documento)
 
@@ -36,6 +38,7 @@ class DocCnpj:
     def __init__(self, documento):
         if self.valida(documento):
             self.cnpj = documento
+            print(self)
         else:
             raise ValueError("CNPJ inválido")
 
