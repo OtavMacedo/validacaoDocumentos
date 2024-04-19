@@ -1,8 +1,9 @@
 import requests
 
 
-
 class BuscaEndereco:
+
+    #Inicializa o objeto, transforma a entrada em string e verifica se o cep é válido
     def __init__(self, cep):
         cep = str(cep)
         if self.valida_cep(cep):
@@ -13,15 +14,18 @@ class BuscaEndereco:
     def __str__(self):
         return self.format_cep()
 
+    #verifica se o cep possui 8 dígitos
     def valida_cep(self, cep):
         if len(cep) == 8:
             return True
         else:
             return False
 
+    #formata o cep
     def format_cep(self):
         return f"{self.cep[:5]}-{self.cep[5:]}"
 
+    #acessa uma api capaz de realizar a busca pelo cep, retornando seu endereço
     def acesso_api(self):
         url = f"https://viacep.com.br/ws/{self.cep}/json/"
         r = requests.get(url)
