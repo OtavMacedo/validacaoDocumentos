@@ -2,10 +2,12 @@ from validate_docbr import CPF, CNPJ
 
 
 class Documento:
+
     # Método factory, utilizado para trazer mais flexibilidade ao código
     @staticmethod
     def cria_documento(documento):
         documento = str(documento)
+        documento = documento.replace('.', '').replace('-', '').replace('/', '')
         if len(documento) == 11:
             return DocCpf(documento)
         elif len(documento) == 14:

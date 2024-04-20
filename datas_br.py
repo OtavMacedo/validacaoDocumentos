@@ -2,6 +2,7 @@ from datetime import datetime, timedelta
 
 
 class Cadastro:
+
     # Inicializa o objeto, definindo a data do cadastro para o exato momento da inicialização
     def __init__(self):
         self.data_cadastro = datetime.today()

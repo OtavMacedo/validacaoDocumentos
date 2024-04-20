@@ -2,9 +2,10 @@ import re
 
 
 class TelefonesBr:
+
     # Inicializa o objeto, transforma a entrada em string, verifica se a entrada é valida
     def __init__(self, telefone):
-        telefone = str(telefone)
+        telefone = self.trata_telefone(telefone)
         if self.valida_telefone(telefone):
             self.numero = telefone
             print(self)
@@ -14,6 +15,12 @@ class TelefonesBr:
 
     def __str__(self):
         return self.format_numero()
+
+    def trata_telefone(self, telefone):
+        telefone = str(telefone)
+        telefone = (telefone.replace("(", "").replace(")", "")
+                    .replace(" ", "").replace("-", ""))
+        return telefone
 
     # Método para validação
     def valida_telefone(self, telefone):
