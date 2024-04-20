@@ -3,10 +3,9 @@ import requests
 
 class BuscaEndereco:
 
-    # Inicializa o objeto, transforma a entrada em string e verifica se o cep é válido
+    # Inicializa o objeto, trata a entrada e verifica se o cep é válido
     def __init__(self, cep):
-        cep = str(cep)
-        cep = cep.replace("-","")
+        cep = self.trata_cep(cep)
         if self.valida_cep(cep):
             self.cep = cep
         else:
@@ -14,6 +13,11 @@ class BuscaEndereco:
 
     def __str__(self):
         return self.format_cep()
+
+    def trata_cep(self, cep):
+        cep = str(cep)
+        cep = cep.replace("-", "")
+        return cep
 
     # Verifica se o cep possui 8 dígitos
     def valida_cep(self, cep):
